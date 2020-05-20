@@ -60,7 +60,7 @@ class studio(db.Model):
 
 '''
 instructor
-Have name, age, and gender
+Have name, age, and gender, and class type
 '''
 
 
@@ -71,11 +71,13 @@ class instructor(db.Model):
     name = Column(String, nullable=False)
     age = Column(Integer, nullable=False)
     gender = Column(String, nullable=False)
+    class_type = Column(String, nullable=False)
 
-    def __init__(self, name, age, gender):
+    def __init__(self, name, age, gender, class_type):
         self.name = name
         self.age = age
         self.gender = gender
+        self.class_type = class_type
 
     def insert(self):
         db.session.add(self)
@@ -93,4 +95,5 @@ class instructor(db.Model):
             'id': self.id,
             'name': self.name,
             'age': self.age,
-            'gender': self.gender}
+            'gender': self.gender,
+            'class_type': self.class_type}

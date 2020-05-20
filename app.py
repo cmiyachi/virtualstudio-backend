@@ -136,8 +136,9 @@ def create_app(test_config=None):
         name = data.get('name', '')
         age = data.get('age', '')
         gender = data.get('gender', '')
+        class_type = data.get('class_type', '')
 
-        instructors = instructor(name=name, age=age, gender=gender)
+        instructors = instructor(name=name, age=age, gender=gender, class_type=class_type)
         if validate_instructor(instructors) is False:
             abort(400)
         try:
@@ -157,6 +158,7 @@ def create_app(test_config=None):
         name = data.get('name', '')
         age = data.get('age', '')
         gender = data.get('gender', '')
+        class_type = data.get('class_type', '')
 
         instructors = instructor.query.get(id)
 
@@ -166,6 +168,7 @@ def create_app(test_config=None):
         instructors.name = name
         instructors.age = age
         instructors.gender = gender
+        instructors.class_type = class_type
         if validate_instructor(instructors) is False:
             db.session.rollback()
             abort(400)

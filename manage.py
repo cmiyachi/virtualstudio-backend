@@ -19,9 +19,9 @@ def seed():
     studio(bizname='Down Under Yoga', opening_date='2009-12-12').insert()
     studio(bizname='Cambridge Athletic Club', opening_date='2006-12-12').insert()
 
-    instructor(name='Chris Miyachi', age=66, gender='male').insert()
-    instructor(name='Kale Poland', age=50, gender='male').insert()
-    instructor(name='Mari Puncel', age=32, gender='male').insert()
+    instructor(name='Chris Miyachi', age=66, gender='female', class_type='dance').insert()
+    instructor(name='Kale Poland', age=50, gender='male', class_type='yoga').insert()
+    instructor(name='Mari Puncel', age=32, gender='female', class_type='crossfit').insert()
 
 if __name__ == '__main__':
     manager.run()

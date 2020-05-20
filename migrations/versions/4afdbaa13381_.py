@@ -23,6 +23,7 @@ def upgrade():
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('age', sa.Integer(), nullable=False),
     sa.Column('gender', sa.String(), nullable=False),
+    sa.Column('class_type', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('studios',
