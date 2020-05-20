@@ -1,0 +1,1253 @@
+{
+	"info": {
+		"_postman_id": "b7958cb7-1840-4777-a5cf-96f67e8db94f",
+		"name": "Virtual Studio Tests Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Studio Owner",
+			"item": [
+				{
+					"name": "get studios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66447992-e390-43b7-b99c-3efa500ce935",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains studios array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.studios).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "adc5d223-3c86-4234-a0c1-041f69ca4d5a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c64412a-6acf-40f1-b883-1ad909f3236e",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bizname\": \"Jaya Yoga\",\n\t\"opening_date\": \"1986-02-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c06c85b-cf08-4d52-b8b8-46624af18eaa",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bizname\": \"The Black Panther\",\n\t\"opening_date\": \"2018-04-12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ecd9928-bfaa-4b6c-aae4-25924b9389ea",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/6",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add an instructor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ac803f1-39a4-4eaf-994e-0bef46a73337",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tyson\",\n\t\"age\": 54,\n\t\"gender\": \"Male\",\n\t\"class_type\":\"kickbox\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a1a411b-08cd-4f04-a83a-97d3c64ab874",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1abab2a3-a6cc-493a-8ffe-a5c4a639b4e9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit an instructor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a62ec4a0-f268-4275-937e-719a1d7456ad",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tyson\",\n\t\"age\": 54,\n\t\"gender\": \"Female\",\n\t\"class_type\": \"low-impact\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete an instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "401a6d85-336f-4eac-b793-241117726b0c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/13",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImJEQ01EX1FncllPTXhBdmtTcWROciJ9.eyJpc3MiOiJodHRwczovL3RvbWFyaWtlbi5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWViOWY3Yjc1MTM0NGUyMjE2NzUyMjZkIiwiYXVkIjoic3R1ZGlvcyIsImlhdCI6MTU5MDAxNDc1NiwiZXhwIjoxNTkwMTAxMTU2LCJhenAiOiI0QjJKWktOMlpzZ214eDNhN0E5MFJkc3ViZlRmaFZOQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmluc3RydWN0b3JzIiwiZGVsZXRlOnN0dWRpb3MiLCJnZXQ6aW5zdHJ1Y3RvcnMiLCJnZXQ6c3R1ZGlvcyIsInBhdGNoOmluc3RydWN0b3JzIiwicGF0Y2g6c3R1ZGlvcyIsInBvc3Q6aW5zdHJ1Y3RvcnMiLCJwb3N0OnN0dWRpb3MiXX0.LfHIHuLchv8jJfWRaDbkftUxOFVxFabWlnzyzWNi65GrSygVo5WKaqONz2BR771yeyxwLyfsoMJa6GKFaqSghv6a-9O9SrSxGkk1wiQvPhlSUgUhc4EtBlVYS1P2FTFhHvje4ISaepoAcZPa4nnWwSRxXieTmjAuoB83mjA0IPx1jEnlNoEFbsZCdk4eDeYD9QeCCOelsSuiIfNeosCepGB7vh-rIDZLkZTK6nG-JEw49izqdY02w_EPaWD9MsPXSQTEMKeVh-jt0rfUmsDLPZIIwGAhcm9rdoEmPtK8XtoS3erLz5LEg6oX2QDniGXNJGDsUNMXyxu64G4iAOhofQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "404f258d-912c-402a-84e8-719c32352365",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e83a470d-668c-4cbe-aad6-cf2f57fe3ed1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "get studios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88a87a3b-c805-4542-8b8d-52f057c2ef9c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.studios).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "99a10716-2961-44dc-9b1a-01af245c5303",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7422a183-7b58-40d2-9780-6320781a0541",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bizname\": \"Jaya Yoga\",\n\t\"opening_date\": \"1986-02-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "14c5624a-e99e-4809-8e94-2874641963f1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bizname\": \"The Black Panther\",\n\t\"opening_date\": \"2018-01-12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "af700f81-629a-422b-977f-ecbe2466b2d2",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/9",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add an instructor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d3fed43-3e4a-4a6e-9dc1-40e0ee4bb148",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tyson\",\n\t\"age\": 54,\n\t\"gender\": \"Male\",\n\t\"class_type\": \"hiit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "50342b87-6637-41b7-ac4e-6bec4c9af335",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e008af00-d1fa-4afb-a629-bfe929d18fa5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit an instructor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15d21604-f0cd-4f4a-809c-64906554648e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tyson\",\n\t\"age\": 54,\n\t\"gender\": \"female\",\n\t\"class_type\": \"HIIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/3",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete an instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75db952f-a6bc-4c6d-91c8-253b9dca9e80",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/11",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImJEQ01EX1FncllPTXhBdmtTcWROciJ9.eyJpc3MiOiJodHRwczovL3RvbWFyaWtlbi5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWViOWY3ZjI0ZjY5ZTEyMjU2ZmI0YjhkIiwiYXVkIjoic3R1ZGlvcyIsImlhdCI6MTU5MDAxNDcxOCwiZXhwIjoxNTkwMTAxMTE4LCJhenAiOiI0QjJKWktOMlpzZ214eDNhN0E5MFJkc3ViZlRmaFZOQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmluc3RydWN0b3JzIiwiZ2V0Omluc3RydWN0b3JzIiwiZ2V0OnN0dWRpb3MiLCJwYXRjaDppbnN0cnVjdG9ycyIsInBhdGNoOnN0dWRpb3MiLCJwb3N0Omluc3RydWN0b3JzIl19.VwcpOIFmpf5eUg7SkZGRJYYsKUp7KWquCf5lWtXFHpmBPBTkqRnE3GiEbrSevlH3VX2ioBt65j7BFbk39j0LrEFfZMUjU27_BYNvp_0d-bx9Rf09QJcTkZHBF-86LKr0yyQurzhtiDFRfkQAniwoY5VKk_EJo0SgWhhPz8sjF8c0c36EcAZA8KSMgk33qdWrUy35Yu1O_fdBzXzGQb2KfXppk6af5sfUxqy2ELmN1zhNbzAe337sFA0jcd9mgpcIYXXxtyCNOVoRkvoOe91oZEk9xOAxhwuyU33CK7nb6IagnF0jk5RykBz4rvAqmB6O_FA938WTQBHOjPJl54XVSg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cfa88e25-efb3-46e0-af3e-7452fa6a62cb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40e38d9f-617a-42e3-a83b-f5abc5085577",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Assistant",
+			"item": [
+				{
+					"name": "get studios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb79baa1-bb59-485d-832b-a94ff3e468a6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains studios array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.studios).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "65e09aec-5fa9-4cff-a32d-d5bbdfcc3a2c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "14c23055-f87c-4293-ae7c-2c51772d4c2b",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bizname\": \"Jaya Yoga\",\n\t\"opening_date\": \"1986-02-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4af56919-db36-4b22-8a49-2c15a253622e",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bizname\": \"Jaya Yoga\",\n\t\"opening_date\": \"1986-02-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a studio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e58d1b01-031e-4a4b-8a9d-f392ce20fef7",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//studios/9",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"studios",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add an instructor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ea65339-d95c-4b91-a39f-07d2d2f393c2",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tyson\",\n\t\"age\": 54,\n\t\"gender\": \"Male\",\n\t\"class_type\": \"kickbox\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d99ff85f-2b2d-4007-a504-cf519a07e50a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b6e6182b-b032-40b4-bef3-30104a8db3d5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit an instructor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf69dbda-d825-4d84-8887-862881efd53f",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tyson\",\n\t\"age\": 54,\n\t\"gender\": \"Male\",\n\t\"class_type\": \"hiit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/3",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete an instructors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eff4dd09-2f4c-4b73-b513-1f5c9b37742d",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://miyachistudios.herokuapp.com//instructors/6",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"instructors",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImJEQ01EX1FncllPTXhBdmtTcWROciJ9.eyJpc3MiOiJodHRwczovL3RvbWFyaWtlbi5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWViOWY3ZGI0ZjY5ZTEyMjU2ZmI0YjI0IiwiYXVkIjoic3R1ZGlvcyIsImlhdCI6MTU5MDAxNDQ5MCwiZXhwIjoxNTkwMTAwODkwLCJhenAiOiI0QjJKWktOMlpzZ214eDNhN0E5MFJkc3ViZlRmaFZOQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0Omluc3RydWN0b3JzIiwiZ2V0OnN0dWRpb3MiXX0.v_bKm8voktSfl84xZrJgXJuUAWsFuVH2-xnwrpgH9g6JYtuNeuQfaLsSQoPv-2N8Woqr0fenz4UkZaqdCSYZzNUtjO9ME8R30f3OmoEFB9om7-ZDz-4E9rovPPygRSS02aPlQk8h94t63XWwRlzyHK8d2OsZR2sxEDlb5tberb5rNDx-WHXfoUbhDQX9-KfHG4UcV2BLsOCJ0smlpEhtcE6ZBX7_LdBpM_TDhpeg-S7YMBltuG_jlPfjGhwEHPtrLiaCAgf0tID-06gK2dlUg1IJoD8W6AHnY3JtaFD2f5_se9G0mewwh-5QKbZpX-GQBEG98l9IvKMYHo9UjqoIiw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "dafa9efe-3454-472e-9942-3e67089c058a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7cd7fe09-8351-45b8-84bb-d759bdc9c228",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4de934a6-cfa7-4920-8e6b-5702117919b1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "373fa076-c0aa-4006-825a-963a3ec13f32",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
