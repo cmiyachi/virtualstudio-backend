@@ -65,16 +65,16 @@ Clone this repo and create your local test and development databases with the fo
 
 | REQUEST TYPE | ROUTE | ACCESS PERMISSION | DESCrptn | USER | BODY |
 | ------------- | ----- | ------------- | ------------- |------------- | ------------- |
-| POST | /studios | post:studios | Adds a studio | Exec Prod ONLY | { bizname:"String", opening_date:"YYYY-MM-DD" } |
-| PATCH | /studios/id | patch:studios | Updates a studio |Casting Dir & Exec Prod ONLY | { bizname:"String", opening_date:"YYYY-MM-DD" } |
+| POST | /studios | post:studios | Adds a studio | Biz OwnerONLY | { bizname:"String", opening_date:"YYYY-MM-DD" } |
+| PATCH | /studios/id | patch:studios | Updates a studio |Manager & Biz OwnerONLY | { bizname:"String", opening_date:"YYYY-MM-DD" } |
 | GET | /studios | get:studios | Gets list of studios | All LoggedIn Users | N/A |
 | GET | /studios/id | get:studios | Get a studio | All LoggedIn Users | N/A |
-| DELETE | /studios/id | delete:studios | Delete a studio | Exec Prod ONLY | N/A |
-| POST | /instructors | post:instructors | Add an instructor | Casting Dir & Exec Prod ONLY | { name:"String", age:"Number", gender:"String" class_type: "class type" } |
-| PATCH | /instructors/id | patch:instructors | Updates an instructor | Casting Dir & Exec Prod ONLY | { name:"optional String", age:"optional Number" gender:"optional String" class_type: "class type"} |
+| DELETE | /studios/id | delete:studios | Delete a studio | Biz OwnerONLY | N/A |
+| POST | /instructors | post:instructors | Add an instructor | Manager & Biz OwnerONLY | { name:"String", age:"Number", gender:"String" class_type: "class type" } |
+| PATCH | /instructors/id | patch:instructors | Updates an instructor | Manager & Biz OwnerONLY | { name:" String", age:" Number" gender:" String" class_type: "class type"} |
 | GET | /instructors | get:instructors | Gets list of instructors| All LoggedIn Users| N/A |
 | GET | /instructors/id | get:instructors | Get an instructor | All LoggedIn Users| N/A |
-| DELETE | /instructors/id | delete:instructors | delete an instructor | Casting Dir & Exec Prod ONLY | N/A |
+| DELETE | /instructors/id | delete:instructors | delete an instructor | Manager & Biz OwnerONLY | N/A |
 
 
 ## Testing
