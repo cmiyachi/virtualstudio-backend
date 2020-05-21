@@ -15,7 +15,7 @@ The app has three user types - a business owner, a manager, and an assistant.  T
 
 ## Project dependencies, local development and hosting instructions,
 
-Clone this repo and create your local test and development databases with the following names.
+Here is the repository of code. Clone or fork and do the following:  [GitHubRepo](https://github.com/cmiyachi/virtualstudio-backend)
 
     studios     
     studios_test
